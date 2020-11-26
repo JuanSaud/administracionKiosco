@@ -63,13 +63,13 @@ public class ProductosAgregadosAVenta extends JFrame {
 	
 		String [] columnaEncabezado = {"Cantidad","Descripcion","Cod. Barra","Precio"};// array que representan el encabezado  y subdivision de categorias
 		
-		// creacion de la tabla; recibe como parametros el formulario a llenar y luego las columnas encabezado
+	
 		final JTable tabla =new JTable(datosFormulario,columnaEncabezado);
 		
-		//ATENDER CON URGENCIA aca se define el tamño del formulario,si surgen problemas, fijarse aca primero
+		
 		tabla.setPreferredScrollableViewportSize(new Dimension(500,80));
 		
-		//configuro para que la ventana sea escroleable y mete la tabla adentro del scroll
+		
  		JScrollPane escrolearVentana = new JScrollPane(tabla);
  		
  		getContentPane().add(escrolearVentana, BorderLayout.CENTER);
