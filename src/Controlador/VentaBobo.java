@@ -2,14 +2,14 @@ package Controlador;
 
 import java.time.LocalDate;
 import java.util.Vector;
+import Controlador.itemVentaBobo;
 
-import Kiosko.itemVenta;
 
 public class VentaBobo {
 	private int numeroV;
 	private LocalDate fecha;
 	private float total;
-	private Vector<String> listaItems;
+	private Vector<itemVentaBobo> listaItems;
 	private String tipoVenta;
 	
 	//si es efectivo
@@ -24,7 +24,7 @@ public class VentaBobo {
 	//private int cuatroDigitos; // no deberia de necesitarlo
 	
 	
-	public VentaBobo(int numero, LocalDate fecha, float total,Vector<String> listaItems, String tipoVenta) {
+	public VentaBobo(int numero, LocalDate fecha, float total,Vector<itemVentaBobo> listaItems, String tipoVenta) {
 		this.numeroV = numero;
 		this.fecha = fecha;
 		this.total = total;
@@ -57,12 +57,12 @@ public class VentaBobo {
 	}
 
 
-	public Vector<String> getListaItems() {
+	public Vector<itemVentaBobo> getListaItems() {
 		return listaItems;
 	}
 
 
-	public void setListaItems(Vector<String> listaItems) {
+	public void setListaItems(Vector<itemVentaBobo> listaItems) {
 		this.listaItems = listaItems;
 	}
 

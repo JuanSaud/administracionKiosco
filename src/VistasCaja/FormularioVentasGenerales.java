@@ -13,6 +13,7 @@ import javax.swing.border.EmptyBorder;
 
 import Controlador.AdministradorCajas;
 import Controlador.VentaBobo;
+import Controlador.itemVentaBobo;
 
 public class FormularioVentasGenerales extends JFrame {
 	
@@ -39,7 +40,7 @@ public class FormularioVentasGenerales extends JFrame {
 		Object [] []datosFormulario = new  Object[dimensionLista] [5];// matriz donde se tomaran los datos para armar la trabla
 		int cont = 0;
 		String items;
-		Vector<String> listaItems;
+		Vector<itemVentaBobo> listaItems;
 		for (VentaBobo v: lista) {
 			items = "";
 			datosFormulario[cont][0] = v.getNumeroV();
@@ -47,8 +48,8 @@ public class FormularioVentasGenerales extends JFrame {
 			datosFormulario[cont][2] = v.getTipoVenta();			
 			datosFormulario[cont][3] = v.getFecha();
 			listaItems = v.getListaItems();
-			for (String i: listaItems) {
-				items = items + i +", ";			
+			for (itemVentaBobo i: listaItems) {
+				items = items + i.getProducto() +", ";			
 			}
 			datosFormulario[cont][4] = items; 
 			cont++;

@@ -16,14 +16,12 @@ public class AdministradorCajas {
 	private float CapitalTotal;
 	private int VentasTotales;
 	
-	// solo habra una CajaIniciada, no puede haber mas de 1.
-	// por eso no es necesario buscar la caja y puedo trabajar directamente con la variable atributo.
-	
+
 	private AdministradorCajas() {
 		listaCajas  = new Vector<CajaDiaria>();
 		VentasTotales = 0;
 		CapitalTotal = 0;
-		//CajaIniciada = null;
+		
 	}
 	
 	public static AdministradorCajas getAdministradorCajas() {
@@ -36,10 +34,6 @@ public class AdministradorCajas {
 	public void iniciarCajaDiaria(float efectivoInicial) {			
 		CajaIniciada = new CajaDiaria(efectivoInicial);
 	}
-	
-//	public CajaDiaria getCajaIniciada() {// mepa no solo no lo necesito sino que esta mal
-//		return CajaIniciada;
-//	}
 	
 	public int getNroCajaIniciada() {
 		int nroCaja = 0;
@@ -135,23 +129,9 @@ public class AdministradorCajas {
 		Vector<Venta> listaVentas = caja.getListaVentasGenerales();
 		VentaBobo vb;
 		Vector<VentaBobo> listadoVentas = new Vector<VentaBobo>();
-		int nroVenta;
-		LocalDate fecha;
-		float total;
-		Vector<String> items;
-		String tipo;		
-		Vector<itemVenta> listaItems;
+		
 		for (Venta v:listaVentas) {
-			items =  new Vector<String>();
-			nroVenta = v.getNumeroV();
-			fecha = v.getFecha();
-			total = v.getTotal();
-			tipo = v.tipoVenta();
-			listaItems = v.getListaItems();
-			for (itemVenta iv: listaItems) {
-				items.add(iv.getProducto().getDescripcion());
-			}
-			vb = new VentaBobo(nroVenta,fecha, total,items, tipo);
+			vb = v.embobate();
 			listadoVentas.add(vb);
 		}
 		return listadoVentas;

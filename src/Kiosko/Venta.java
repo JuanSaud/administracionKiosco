@@ -3,6 +3,8 @@ package Kiosko;
 import java.time.LocalDate;
 import java.util.Vector;
 
+import Controlador.VentaBobo;
+
 
 
 
@@ -75,4 +77,6 @@ public abstract class Venta {
 	}
 	
 	public abstract String tipoVenta();
+
+	public abstract VentaBobo embobate();
 }

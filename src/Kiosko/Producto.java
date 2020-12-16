@@ -1,12 +1,14 @@
 package Kiosko;
 
+import Controlador.ProductoBobo;
+
 public class Producto {
 //============================================================================================================	
 
 	//atributos
 	private int codigoBarra;
 	private String descripcion;
-	protected float precio;// para que lo obtengan los hijos
+	private float precio;//protected para que lo pueda
 	private int stock;
 	private String estado;
 	protected int stockMinimo;
@@ -89,7 +91,12 @@ public class Producto {
 		
 	}
 	
+	public boolean stockOK() {
+		return stock > stockMinimo;
+	}
 	
-	
-
+	public ProductoBobo embobate() {
+		ProductoBobo bobo = new ProductoBobo(codigoBarra,descripcion,precio, stock, stockMinimo);
+		return bobo;
+	}
 }

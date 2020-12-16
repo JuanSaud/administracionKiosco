@@ -1,5 +1,7 @@
 package Kiosko;
 
+import Controlador.itemVentaBobo;
+
 public class itemVenta {
 	private Producto producto;
 	private int cantidad;
@@ -26,11 +28,15 @@ public class itemVenta {
 	}
 	
 	public float calcularSubTotal() {
-		return producto.precio * cantidad;
+		return producto.getPrecio() * cantidad;
 	}
 	
 	public void actualizarStock() {
 		producto.descontarStock(cantidad);
+	}
+	public itemVentaBobo embobate() {
+		itemVentaBobo bobo = new itemVentaBobo(producto.getDescripcion(), cantidad);
+		return bobo;
 	}
 
 }

@@ -1,5 +1,10 @@
 package Kiosko;
 
+import java.util.Vector;
+
+import Controlador.VentaBobo;
+import Controlador.itemVentaBobo;
+
 public class VentaEfectivo extends Venta {
 	private float montoPagado;
 	private float vuelto;
@@ -34,6 +39,18 @@ public class VentaEfectivo extends Venta {
 	
 	public String tipoVenta() {
 		return "Efectivo";
+	}
+	
+	public VentaBobo embobate(){
+		Vector<itemVenta> lista = this.getListaItems(); 
+		Vector<itemVentaBobo> listaI = new Vector<itemVentaBobo>();
+		itemVentaBobo i;
+		for (itemVenta iv: lista) {
+			i = iv.embobate();
+			listaI.add(i);
+		}		
+		VentaBobo bobo = new VentaBobo(this.getNumeroV(),this.getFecha(), this.total,listaI,this.tipoVenta());
+		return bobo;
 	}
 
 }
